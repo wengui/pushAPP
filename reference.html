@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">参考值设置</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">N端脑钠肽( NT-proBNP)&nbsp;&nbsp;&nbsp;年龄<75岁</a>
+						<div class="mui-collapse-content">
+							<form class="mui-input-group">
+								<div class="mui-input-row" >
+									<label>阴性 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="300"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>可疑 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="900"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>高度心衰可能 </label>
+									<label style="width:65%;text-align: right;">900 以上</label>
+								</div>		
+								<div class="mui-button-row">
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">N端脑钠肽( NT-proBNP)&nbsp;&nbsp;&nbsp;年龄≥75岁</a>
+						<div class="mui-collapse-content">
+							<form class="mui-input-group">
+								<div class="mui-input-row" >
+									<label>阴性 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="500"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>可疑 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="1800"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>高度心衰可能 </label>
+									<label style="width:65%;text-align: right;">1800 以上</label>
+								</div>		
+								<div class="mui-button-row">
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">降钙素原(PCT)</a>
+						<div class="mui-collapse-content">
+							<form class="mui-input-group">
+								<div class="mui-input-row" >
+									<label>正常 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="300"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>异常 </label>
+									<label style="width:65%;text-align: right;">300 以上</label>
+								</div>		
+								<div class="mui-button-row">
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">D二聚体(D-dimer)</a>
+						<div class="mui-collapse-content">
+							<form class="mui-input-group">
+								<div class="mui-input-row" >
+									<label>正常 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="300"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>异常 </label>
+									<label style="width:65%;text-align: right;">300 以上</label>
+								</div>		
+								<div class="mui-button-row">
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">肌钙蛋(TnI)</a>
+						<div class="mui-collapse-content">
+							<form class="mui-input-group">
+								<div class="mui-input-row" >
+									<label>阴性 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="0.1"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>可疑 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="0.5"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>高度心衰可能 </label>
+									<label style="width:65%;text-align: right;">0.5以上</label>
+								</div>		
+								<div class="mui-button-row">
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">肌红蛋白(MYO)</a>
+						<div class="mui-collapse-content">
+							<form class="mui-input-group">
+								<div class="mui-input-row" >
+									<label>正常 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="80"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>异常 </label>
+									<label style="width:65%;text-align: right;">80 以上</label>
+								</div>		
+								<div class="mui-button-row">
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+								</div>
+							</form>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">肌酸激酶同工酶(CK-MB)</a>
+						<div class="mui-collapse-content">
+							<form class="mui-input-group">
+								<div class="mui-input-row" >
+									<label>正常 </label>
+									<label><</label>
+									<div class="mui-numbox">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="5"/>
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+								<div class="mui-input-row" >
+									<label>异常 </label>
+									<label style="width:65%;text-align: right;">5 以上</label>
+								</div>		
+								<div class="mui-button-row">
+									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+								</div>
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.js"></script>
+		<script>
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+		</script>
+	</body>
+
+</html>
