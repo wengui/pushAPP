@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<title>Hello MUI</title>
@@ -26,34 +25,21 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">历史通知</h1>
 		</header>
+		<div class="mui-content">
+			<div class="title">
+				通知列表
+			</div>
+			<div class="mui-card" style="margin-bottom: 35px;">
+				<ul class="mui-table-view" id="content">
 
-		<div class="title">
-			card（圆角列表）
-		</div>
-		<div class="mui-card" style="margin-bottom: 35px;">
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-							Item 1
-						</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-							Item 2
-						</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-							Item 3
-						</a>
-				</li>
-			</ul>
-		</div>
+				</ul>
+			</div>
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>
+	<script src="js/app.js"></script>
 	<script>
-
+		
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
 		});
@@ -61,95 +47,127 @@
 			var options = {
 				cover: false
 			};
-			
-			alert(plus.push.getClientInfo().clientid);
-			alert(plus.push.getClientInfo().token);
-			var str = new Date();
-			str += ": 欢迎使用Html5 Plus创建本地消息！";
-			plus.push.createMessage(str, "'{'name':'张三','time':'2016-03-08 13:49:25'}", options);
-			console.log("创建本地消息成功！");
-			console.log("请到系统消息中心查看！");
-			if (plus.os.name == "iOS") {
-				console.log('*如果无法创建消息，请到"设置"->"通知"中配置应用在通知中心显示!');
-			}
-			// 监听点击消息事件
-			plus.push.addEventListener("click", function(msg) {
-				alert("json字符串内容"+parseJSON(msg.payload));
-		
-				alert("进入click监听");
-				var obj = msg.payload;
-				alert("json字符串非eval"+obj);
-				alert("姓名"+obj.name);
-				alert("时间"+obj.time);
-				
-//				var obj2 = msg.payload.toString();
-//				alert("json字符串非eval tostring"+obj2);
-//				alert("姓名"+obj2.name);
-//				alert("时间"+obj2.time);
-//				
-//				var obj = eval("("+msg.payload.toString()+")");
-//				alert("json字符串eval2后"+obj);
-//				alert("姓名"+obj.name);
-//				alert("时间"+obj.time);
-				// 判断是从本地创建还是离线推送的消息
-//				switch (msg.payload) {
-//					case "LocalMSG":
-//						console.log("点击本地创建消息启动：");
-//						break;
-//					default:
-//						console.log("点击离线推送消息启动：");
-//						break;
-//				}
-				alert("ajax启动");
-				mui.ajax('http://192.168.1.162:8080/pushApi/report/reportResult.do', {
-					data: {
-//						pname: "张三",
-//						ptime: "2016-03-08 13:49:25"
-						pname:obj.name,
-						ptime:obj.time
-					},
-					dataType: 'json', //服务器返回json格式数据
-					type: 'post', //HTTP请求类型
-					timeout: 100000, //超时时间设置为10秒；
-					success: function(data) {
-						//服务器返回响应，根据响应结果，分析是否登录成功；
-						console.log("success");
-						console.log(data.result);
-						
-						mui.openWindow({
-							url: 'index.html',
-							id: 'index.html',
-							extras: {
-								send: data.result
-							}
-						});
-					},
-					error: function(xhr, type, errorThrown) { //异常处理；
-						console.log(type);
+			//显示历史一览用
+			var naiyo = '';
+			mui.ajax('http://192.168.1.157:8080/pushApi/report/reportResultHistory.do', {
+				data: {},
+				dataType: 'json', //服务器返回json格式数据
+				type: 'post', //HTTP请求类型
+				timeout: 100000, //超时时间设置为10秒；
+				success: function(data) {
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+					console.log("success");
+					console.log(data.result);
+					var obj = data.result;
+					for (var i = 0; i < obj.length; i++) {
+						//标题
+						//json日期转换
+						var date= new Date(obj[i].testtime.time).Format("yyyy-MM-dd hh:mm:ss");
+						naiyo += "<li class='mui-table-view-cell'>"+
+							"<a class='mui-navigate-right' onclick='info("+"\""+obj[i].patientname+"\""+","+"\""+date+"\""+");'>"+
+							obj[i].patientname + ":" + obj[i].pushcontent +
+							"<p>" + date + "</p>"+
+						"</a>" + "</li>";
 					}
-				});
-			
-				// 提示点击的内容
-				//plus.ui.alert(msg.content);
-				// 处理其它数据
-				//logoutPushMsg(msg);
+					console.log(naiyo);
+					
+					content.innerHTML = naiyo;
+				},
+				error: function(xhr, type, errorThrown) { //异常处理；
+					console.log(type);
+				}
+			});
+//						alert(plus.push.getClientInfo().clientid);
+//						alert(plus.push.getClientInfo().token);
+//						var str = new Date();
+//						str += ": 欢迎使用Html5 Plus创建本地消息！";
+//						plus.push.createMessage(str, "'{'name':'张三','time':'2016-03-08 13:49:25'}", options);
+//						console.log("创建本地消息成功！");
+//						console.log("请到系统消息中心查看！");
+//						if (plus.os.name == "iOS") {
+//							console.log('*如果无法创建消息，请到"设置"->"通知"中配置应用在通知中心显示!');
+//						}
+			// 监听点击消息事件 
+			plus.push.addEventListener("click", function(msg) {
+	
+				//alert("进入click监听");
+				var obj = msg.payload;
+//				alert("json字符串非eval" + obj);
+//				alert("姓名" + obj.name);
+//				alert("时间" + obj.time);
+
+				//alert("ajax启动");
+				
+				
+				info(obj.name,obj.time);
+//				mui.ajax('http://192.168.1.157:8080/pushApi/report/reportResult.do', {
+//					data: {
+//						//						pname: "张三",
+//						//						ptime: "2016-03-08 13:49:25"
+//						pname: obj.name,
+//						ptime: obj.time
+//					},
+//					dataType: 'json', //服务器返回json格式数据
+//					type: 'post', //HTTP请求类型
+//					timeout: 100000, //超时时间设置为10秒；
+//					success: function(data) {
+//						//服务器返回响应，根据响应结果，分析是否登录成功；
+//						console.log("success");
+//						console.log(data.result);
+//						mui.openWindow({
+//							url: 'index.html',
+//							id: 'index.html',
+//							extras: {
+//								send: data.result,
+//								ptime: obj.time
+//							}
+//						});
+//					},
+//					error: function(xhr, type, errorThrown) { //异常处理；
+//						console.log(type);
+//					}
+//				});
+
 			}, false);
 			// 监听在线消息事件
 			plus.push.addEventListener("receive", function(msg) {
+				//alert("进入receive监听");
 				
-				
-				alert("进入receive监听");
-				alert("receive "+msg.payload.toString())
-				if (msg.aps) { // Apple APNS message
-
-					alert("接收到在线APNS消息：");
-				} else {
-					alert("接收到在线透传消息：");
+				//ios时弹出对话框，切到通知详情页面
+				if (plus.os.name == "iOS") {
+					var obj = msg.payload;
+//					alert("json字符串" + obj);
+//					alert("姓名" + obj.name);
+//					alert("时间" + obj.time);
+//					
+					var btnArray = ['否', '是'];
+					mui.confirm('是否立即查看？', '你有一条最新的检查结果的通知！', btnArray, function(e) {
+						if (e.index == 1) {
+							//执行info函数跳转通知详情页面
+							info(obj.name,obj.time);
+						} else {
+							//保持当前页面
+						}
+					})					
 				}
-				//alert(msg.payload);
-				console.log(msg.CONTENT);
-				//设置页面显示内容
+				
+				else{
+					//安卓机器解析payload信息进入通知详情页面
+					//alert("receive " + msg.payload.toString());
+					var xinxi=msg.payload.toString().split(",");
+					//名字+逗号+时间
+					info(xinxi[0],xinxi[1]);
+				}
 
+				
+//				if (msg.aps) { // Apple APNS message
+//					alert("接收到在线APNS消息：");
+//				} else {
+//					alert("接收到在线透传消息：");
+//				}
+//				//alert(msg.payload);
+//				console.log(msg.CONTENT);
+//				//设置页面显示内容
 			}, false);
 		});
 	</script>

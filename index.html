@@ -32,35 +32,51 @@
 				var datalist = self.send;
 				var obj = datalist;
 				var naiyo = '';
-				for (var i = 0; i < obj.length; i++) {
-					
+				if(obj.length==0){
+					naiyo+="<div class='title'>"+"无相关记录"+"</div>"
+				}
+				else{
 					//标题
-					naiyo+="<div class='title'>"+"病人"+obj[i].patientName+"</div>"
-					
-					naiyo+="<ul class='mui-table-view'>"
-					//别名
-					naiyo+="<li class='mui-table-view-cell mui-media'>"+
-								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"代号"+
-								"<p class='mui-ellipsis' id='symbol'>"+obj[i].itemId+"</p>"+
-								"</div>"+"</a>"+"</li>";
-
-					//项目
-					naiyo+="<li class='mui-table-view-cell mui-media'>"+
-								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"项目"+
-								"<p class='mui-ellipsis' id='symbol'>"+obj[i].itemName+"</p>"+
-								"</div>"+"</a>"+"</li>";
-					//结果
-					naiyo+="<li class='mui-table-view-cell mui-media'>"+
-								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"结果"+
-								"<p class='mui-ellipsis' id='symbol'>"+obj[i].value+"</p>"+
-								"</div>"+"</a>"+"</li>";
-					//参考值
-					naiyo+="<li class='mui-table-view-cell mui-media'>"+
-								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"参考值"+
-								"<p class='mui-ellipsis' id='symbol'>"+"大于:"+obj[i].min+"小于:"+obj[i].max+" "+obj[i].reference+"</p>"+
-								"</div>"+"</a>"+"</li>"+"</ul>";
+					naiyo+="<div class='title'><h4>"+"病人: "+obj[0].patientName+"</h4></div>"
+					naiyo+="<div class='title'><h4>"+"测试时间: "+self.ptime+"</h4></div>"
+					for (var i = 0; i < obj.length; i++) {
+						
+						
+						naiyo+="<div class='title'>"+"项目: "+obj[0].itemName+"</div>"
+						naiyo+="<ul class='mui-table-view'>"
+						//别名
+						naiyo+="<li class='mui-table-view-cell mui-media'>"+
+									"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"代号"+
+									"<p class='mui-ellipsis' id='symbol'>"+obj[i].itemId+"</p>"+
+									"</div>"+"</a>"+"</li>";
+	
+	//					//项目
+	//					naiyo+="<li class='mui-table-view-cell mui-media'>"+
+	//								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"项目"+
+	//								"<p class='mui-ellipsis' id='symbol'>"+obj[i].itemName+"</p>"+
+	//								"</div>"+"</a>"+"</li>";
+						//结果
+						naiyo+="<li class='mui-table-view-cell mui-media'>"+
+									"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"结果"+
+									"<p class='mui-ellipsis' id='symbol'>"+obj[i].value+"</p>"+
+									"</div>"+"</a>"+"</li>";
+						//参考值
+						if(obj[i].max=="99999"){
+							naiyo+="<li class='mui-table-view-cell mui-media'>"+
+									"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"参考值"+
+									"<p class='mui-ellipsis' id='symbol'>"+"大于:"+obj[i].min+" "+obj[i].reference+"</p>"+
+									"</div>"+"</a>"+"</li>"+"</ul>";
+						}
+						else{
+							naiyo+="<li class='mui-table-view-cell mui-media'>"+
+									"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"参考值"+
+									"<p class='mui-ellipsis' id='symbol'>"+"大于:"+obj[i].min+"小于:"+obj[i].max+" "+obj[i].reference+"</p>"+
+									"</div>"+"</a>"+"</li>"+"</ul>";
+						}
+						
+						}
 					}
-				content.innerHTML = naiyo; 
+					content.innerHTML = naiyo; 
 			});
 		</script>
 	</head>
