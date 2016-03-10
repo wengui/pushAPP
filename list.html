@@ -23,6 +23,7 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right" onclick="location.href='reference.html'">编辑</button>	
 			<h1 class="mui-title">历史通知</h1>
 		</header>
 		<div class="mui-content">
@@ -65,8 +66,8 @@
 						var date= new Date(obj[i].testtime.time).Format("yyyy-MM-dd hh:mm:ss");
 						naiyo += "<li class='mui-table-view-cell'>"+
 							"<a class='mui-navigate-right' onclick='info("+"\""+obj[i].patientname+"\""+","+"\""+date+"\""+");'>"+
-							obj[i].patientname + ":" + obj[i].pushcontent +
-							"<p>" + date + "</p>"+
+							"病人:"+obj[i].patientname + " 内容:" + obj[i].pushcontent +
+							"<p>"+"测试时间: " + date + "</p>"+
 						"</a>" + "</li>";
 					}
 					console.log(naiyo);
