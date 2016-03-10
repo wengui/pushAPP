@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<title>Hello MUI</title>
@@ -12,7 +11,6 @@
 		<link rel="stylesheet" href="css/mui.min.css">
 		<!--App自定义的css-->
 		<link rel="stylesheet" type="text/css" href="css/app.css"/>
-		
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
@@ -28,28 +26,28 @@
 							<form class="mui-input-group">
 								<div class="mui-input-row" >
 									<label>阴性 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="300"/>
+									<input class="mui-input-numbox" type="number" id="NT-proBNP_limit1" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
 									<label>可疑 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="900"/>
+									<input class="mui-input-numbox" type="number" id="NT-proBNP_limit2" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
-									<label>高度心衰可能 </label>
-									<label style="width:65%;text-align: right;">900 以上</label>
+									<label style="width:65%;">高度心衰可能 </label>
+									<label style="text-align: right;"  id="lbl_NT-proBNP_limit2" >0以上</label>
 								</div>		
 								<div class="mui-button-row">
-									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+									<button class="mui-btn mui-btn-primary" type="button" id="btn_NT-proBNP">提交修改</button>&nbsp;&nbsp;
 								</div>
 							</form>
 						</div>
@@ -60,28 +58,28 @@
 							<form class="mui-input-group">
 								<div class="mui-input-row" >
 									<label>阴性 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="500"/>
+									<input class="mui-input-numbox" type="number" id="NT-proBNP_75_limit1" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
 									<label>可疑 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="1800"/>
+									<input class="mui-input-numbox" type="number" id="NT-proBNP_75_limit2" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
-									<label>高度心衰可能 </label>
-									<label style="width:65%;text-align: right;">1800 以上</label>
+									<label style="width:65%;">高度心衰可能 </label>
+									<label style="text-align: right;" id="lbl_NT-proBNP_75_limit2">0 以上</label>
 								</div>		
 								<div class="mui-button-row">
-									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+									<button class="mui-btn mui-btn-primary" type="button" id="btn_NT-proBNP_75">提交修改</button>&nbsp;&nbsp;
 								</div>
 							</form>
 						</div>
@@ -92,19 +90,19 @@
 							<form class="mui-input-group">
 								<div class="mui-input-row" >
 									<label>正常 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="300"/>
+									<input class="mui-input-numbox" type="number" id="PCT_limit1" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
 									<label>异常 </label>
-									<label style="width:65%;text-align: right;">300 以上</label>
+									<label style="width:65%;text-align: right;" id="lbl_PCT_limit1">0 以上</label>
 								</div>		
 								<div class="mui-button-row">
-									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+									<button class="mui-btn mui-btn-primary" type="button" id="btn_PCT">提交修改</button>&nbsp;&nbsp;
 								</div>
 							</form>
 						</div>
@@ -115,19 +113,19 @@
 							<form class="mui-input-group">
 								<div class="mui-input-row" >
 									<label>正常 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="300"/>
+									<input class="mui-input-numbox" type="number" id="D-dimer_limit1" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
 									<label>异常 </label>
-									<label style="width:65%;text-align: right;">300 以上</label>
+									<label style="width:65%;text-align: right;" id="lbl_D-dimer_limit1">0 以上</label>
 								</div>		
 								<div class="mui-button-row">
-									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+									<button class="mui-btn mui-btn-primary" type="button" id="btn_D-dimer">提交修改</button>&nbsp;&nbsp;
 								</div>
 							</form>
 						</div>
@@ -138,51 +136,51 @@
 							<form class="mui-input-group">
 								<div class="mui-input-row" >
 									<label>阴性 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="0.1"/>
+									<input class="mui-input-numbox" type="number" id="TnI_limit1" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
 									<label>可疑 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="0.5"/>
+									<input class="mui-input-numbox" type="number" id="TnI_limit2" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
-									<label>高度心衰可能 </label>
-									<label style="width:65%;text-align: right;">0.5以上</label>
+									<label>AMI </label>
+									<label style="width:65%;text-align: right;" id="lbl_TnI_limit2" >0以上</label>
 								</div>		
 								<div class="mui-button-row">
-									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+									<button class="mui-btn mui-btn-primary" type="button" id="btn_TnI">提交修改</button>&nbsp;&nbsp;
 								</div>
 							</form>
 						</div>
 					</li>
 					<li class="mui-table-view-cell mui-collapse">
-						<a class="mui-navigate-right" href="#">肌红蛋白(MYO)</a>
+						<a class="mui-navigate-right" href="#">肌红蛋白(Myo)</a>
 						<div class="mui-collapse-content">
 							<form class="mui-input-group">
 								<div class="mui-input-row" >
 									<label>正常 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="80"/>
+									<input class="mui-input-numbox" type="number" id="Myo_limit1" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
 									<label>异常 </label>
-									<label style="width:65%;text-align: right;">80 以上</label>
+									<label style="width:65%;text-align: right;" id="lbl_Myo_limit1">0 以上</label>
 								</div>		
-								<div class="mui-button-row">
-									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+								<div class="mui-button-row"> 
+									<button class="mui-btn mui-btn-primary" type="button" id="btn_Myo">提交修改</button>&nbsp;&nbsp;
 								</div>
 							</form>
 						</div>
@@ -193,19 +191,19 @@
 							<form class="mui-input-group">
 								<div class="mui-input-row" >
 									<label>正常 </label>
-									<label><</label>
+									<label style="width:15%;"><</label>
 									<div class="mui-numbox">
 									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-									<input class="mui-input-numbox" type="number" value="5"/>
+									<input class="mui-input-numbox" type="number" id="CK-MB_limit1" />
 									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 									</div>
 								</div>
 								<div class="mui-input-row" >
 									<label>异常 </label>
-									<label style="width:65%;text-align: right;">5 以上</label>
+									<label style="width:65%;text-align: right;" id="lbl_CK-MB_limit1">0 以上</label>
 								</div>		
 								<div class="mui-button-row">
-									<button class="mui-btn mui-btn-primary" type="button" onclick="return false;">确认修改</button>&nbsp;&nbsp;
+									<button class="mui-btn mui-btn-primary" type="button" id="btn_CK-MB">提交修改</button>&nbsp;&nbsp;
 								</div>
 							</form>
 						</div>
@@ -216,8 +214,155 @@
 		<script src="js/mui.js"></script>
 		<script>
 			mui.init({
-				swipeBack:true //启用右滑关闭功能
+				swipeBack: true //启用右滑关闭功能
 			});
+			
+			mui.plusReady(function() {
+				alert("ajax启动");
+				//console.log("item:"+item); 
+				//数据取得
+				getRefValue();
+				//时间监听
+				addBtnEventListner();
+			});
+		//取得参考数据
+		function getRefValue(){
+			
+			mui.ajax('http://192.168.1.155:8080/pushApi/checkerRefAction/checkerRef.do', {
+				dataType: 'json', //服务器返回json格式数据
+				type: 'post', //HTTP请求类型
+				timeout: 100000, //超时时间设置为10秒；
+				success: function(data) {
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+					var obj = data.result;
+					var limit1;
+					var limit2;
+					var lbl_limit1;
+					var lbl_limit2;  
+					for (var i = 0; i < obj.length; i++) {
+						if(obj[i].itemName == "NT-proBNP" || obj[i].itemName == "TnI"){
+							
+							if(obj[i].age == 0){
+								limit1 = document.getElementById(obj[i].itemName+"_limit1");
+								limit2 = document.getElementById(obj[i].itemName+"_limit2");
+								lbl_limit2 = document.getElementById("lbl_"+obj[i].itemName+"_limit2");
+							}else{
+								limit1 = document.getElementById(obj[i].itemName+"_75_limit1");
+								limit2 = document.getElementById(obj[i].itemName+"_75_limit2");
+								lbl_limit2 = document.getElementById("lbl_"+obj[i].itemName+"_75_limit2");
+							}
+							console.log(obj[i].itemName );
+							console.log(obj[i].age);  
+							limit1.value = obj[i].min; 
+							limit2.value = obj[i].max;
+							lbl_limit2.innerHTML = obj[i].max + "以上";
+						
+						}else {
+
+							limit1 = document.getElementById(obj[i].itemName+"_limit1");
+							lbl_limit1 = document.getElementById("lbl_"+obj[i].itemName+"_limit1");
+							limit1.value = obj[i].min;
+							lbl_limit1.innerHTML = obj[i].min + "以上";
+						}
+					} 
+				},
+				error: function(xhr, type, errorThrown) { //异常处理；
+					console.log(type);
+				}
+			});
+		}
+		
+		//添加按钮监听
+		function addBtnEventListner(){
+			
+			//NT-proBNP 75岁以下
+			document.getElementById("btn_NT-proBNP").addEventListener("tap",function(){
+				limit1 = document.getElementById("NT-proBNP_limit1");
+				limit2 = document.getElementById("NT-proBNP_limit2");
+				UpdateRefValue1("NT-proBNP","0",limit1.value,limit2.value); 
+			},false);
+			
+			//NT-proBNP 75岁以上
+			document.getElementById("btn_NT-proBNP_75").addEventListener("tap",function(){
+				limit1 = document.getElementById("NT-proBNP_75_limit1");
+				limit2 = document.getElementById("NT-proBNP_75_limit2");
+				UpdateRefValue1("NT-proBNP","75",limit1.value,limit2.value); 
+			},false);
+			
+			//PCT
+			document.getElementById("btn_PCT").addEventListener("tap",function(){
+				limit1 = document.getElementById("PCT_limit1");
+				UpdateRefValue2("PCT",limit1.value);
+			},false);
+			
+			//D-dimer
+			document.getElementById("btn_D-dimer").addEventListener("tap",function(){
+				limit1 = document.getElementById("D-dimer_limit1");
+				UpdateRefValue2("D-dimer",limit1.value);
+			},false);
+			
+			//TnI
+			document.getElementById("btn_TnI").addEventListener("tap",function(){
+				limit1 = document.getElementById("TnI_limit1");
+				limit2 = document.getElementById("TnI_limit2");
+				alert(limit1.value);alert(limit2.value);
+				UpdateRefValue1("TnI","0",limit1.value,limit2.value);
+			},false);
+			
+			//Myo
+			document.getElementById("btn_Myo").addEventListener("tap",function(){
+				limit1 = document.getElementById("Myo_limit1");
+				UpdateRefValue2("Myo",limit1.value);
+			},false);
+			
+			//CK-MB
+			document.getElementById("btn_CK-MB").addEventListener("tap",function(){
+				limit1 = document.getElementById("CK-MB_limit1");
+				UpdateRefValue2("CK-MB",limit1.value);
+			},false);
+		}
+		
+		//更新参考值1
+		function UpdateRefValue1(item,ageValue,minValue,maxValue){
+			mui.ajax('http://192.168.1.155:8080/pushApi/checkerRefAction/updateRefAll.do', {
+					data: {
+						itemName:item,
+						age:ageValue,
+						min:minValue,
+						max:maxValue,
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 100000, //超时时间设置为10秒；
+					success: function(data) {
+						mui.alert("更新成功"); 
+						getRefValue();
+					},
+					error: function(xhr, type, errorThrown) { //异常处理；
+						console.log(type);
+					}
+			});
+		}
+		
+		//更新参考值2
+		function UpdateRefValue2(item,minValue){
+			mui.ajax('http://192.168.1.155:8080/pushApi/checkerRefAction/updateRef.do', {
+					data: {
+						itemName:item,
+						min:minValue
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 100000, //超时时间设置为10秒；
+					success: function(data) {
+						mui.alert("更新成功"); 
+						getRefValue();
+					},
+					error: function(xhr, type, errorThrown) { //异常处理；
+						console.log(type);
+					}
+			});
+		}
 		</script>
 	</body>
 
