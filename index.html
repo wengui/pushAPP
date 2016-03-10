@@ -25,9 +25,6 @@
 			mui.plusReady(function() {
 				//获取相关控件
 				content = document.getElementById("content");
-//				project = document.getElementById("project");
-//				result = document.getElementById("result");
-//				reference = document.getElementById("reference");
 				var self = plus.webview.currentWebview();
 				var datalist = self.send;
 				var obj = datalist;
@@ -49,12 +46,7 @@
 									"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"代号"+
 									"<p class='mui-ellipsis' id='symbol'>"+obj[i].itemId+"</p>"+
 									"</div>"+"</a>"+"</li>";
-	
-	//					//项目
-	//					naiyo+="<li class='mui-table-view-cell mui-media'>"+
-	//								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"项目"+
-	//								"<p class='mui-ellipsis' id='symbol'>"+obj[i].itemName+"</p>"+
-	//								"</div>"+"</a>"+"</li>";
+
 						//结果
 						naiyo+="<li class='mui-table-view-cell mui-media'>"+
 									"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"结果";
@@ -98,46 +90,7 @@
 			<h1 class="mui-title">通知详情</h1>
 		</header>
 		<div class="mui-content" id="content">
-			<!--<div class="title">
-				缩略图居右
-			</div>
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
 
-						<div class="mui-media-body">
-							代号
-							<p class='mui-ellipsis' id="symbol">静静的看这个世界，最后终于疯了</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-
-						<div class="mui-media-body">
-							项目
-							<p class='mui-ellipsis' id="project">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-
-						<div class="mui-media-body">
-							结果
-							<p class='mui-ellipsis' id="result">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<div class="mui-media-body">
-							参考值
-							<p class='mui-ellipsis' id="reference">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-						</div>
-					</a>
-				</li>
-			</ul>-->
 		</div>
 
 	</body>

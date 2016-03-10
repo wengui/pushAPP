@@ -78,69 +78,22 @@
 					console.log(type);
 				}
 			});
-//						alert(plus.push.getClientInfo().clientid);
-//						alert(plus.push.getClientInfo().token);
-//						var str = new Date();
-//						str += ": 欢迎使用Html5 Plus创建本地消息！";
-//						plus.push.createMessage(str, "'{'name':'张三','time':'2016-03-08 13:49:25'}", options);
-//						console.log("创建本地消息成功！");
-//						console.log("请到系统消息中心查看！");
-//						if (plus.os.name == "iOS") {
-//							console.log('*如果无法创建消息，请到"设置"->"通知"中配置应用在通知中心显示!');
-//						}
+
 			// 监听点击消息事件 
 			plus.push.addEventListener("click", function(msg) {
-	
-				//alert("进入click监听");
-				var obj = msg.payload;
-//				alert("json字符串非eval" + obj);
-//				alert("姓名" + obj.name);
-//				alert("时间" + obj.time);
 
-				//alert("ajax启动");
-				
-				
+				var obj = msg.payload;
+
 				info(obj.name,obj.time);
-//				mui.ajax('http://192.168.1.157:8080/pushApi/report/reportResult.do', {
-//					data: {
-//						//						pname: "张三",
-//						//						ptime: "2016-03-08 13:49:25"
-//						pname: obj.name,
-//						ptime: obj.time
-//					},
-//					dataType: 'json', //服务器返回json格式数据
-//					type: 'post', //HTTP请求类型
-//					timeout: 100000, //超时时间设置为10秒；
-//					success: function(data) {
-//						//服务器返回响应，根据响应结果，分析是否登录成功；
-//						console.log("success");
-//						console.log(data.result);
-//						mui.openWindow({
-//							url: 'index.html',
-//							id: 'index.html',
-//							extras: {
-//								send: data.result,
-//								ptime: obj.time
-//							}
-//						});
-//					},
-//					error: function(xhr, type, errorThrown) { //异常处理；
-//						console.log(type);
-//					}
-//				});
 
 			}, false);
 			// 监听在线消息事件
 			plus.push.addEventListener("receive", function(msg) {
-				//alert("进入receive监听");
 				
 				//ios时弹出对话框，切到通知详情页面
 				if (plus.os.name == "iOS") {
 					var obj = msg.payload;
-//					alert("json字符串" + obj);
-//					alert("姓名" + obj.name);
-//					alert("时间" + obj.time);
-//					
+
 					var btnArray = ['否', '是'];
 					mui.confirm('是否立即查看？', '你有一条最新的检查结果的通知！', btnArray, function(e) {
 						if (e.index == 1) {
@@ -160,15 +113,6 @@
 					info(xinxi[0],xinxi[1]);
 				}
 
-				
-//				if (msg.aps) { // Apple APNS message
-//					alert("接收到在线APNS消息：");
-//				} else {
-//					alert("接收到在线透传消息：");
-//				}
-//				//alert(msg.payload);
-//				console.log(msg.CONTENT);
-//				//设置页面显示内容
 			}, false);
 		});
 	</script>
