@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<style>
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+		</style>
+
+		<script src="js/mui.min.js"></script>
+
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				//获取相关控件
+				content = document.getElementById("content");
+//				project = document.getElementById("project");
+//				result = document.getElementById("result");
+//				reference = document.getElementById("reference");
+				var self = plus.webview.currentWebview();
+				var datalist = self.send;
+				var obj = datalist;
+				var naiyo = '';
+				for (var i = 0; i < obj.length; i++) {
+					
+					//标题
+					naiyo+="<div class='title'>"+"病人"+obj[i].patientName+"</div>"
+					
+					naiyo+="<ul class='mui-table-view'>"
+					//别名
+					naiyo+="<li class='mui-table-view-cell mui-media'>"+
+								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"代号"+
+								"<p class='mui-ellipsis' id='symbol'>"+obj[i].itemId+"</p>"+
+								"</div>"+"</a>"+"</li>";
+
+					//项目
+					naiyo+="<li class='mui-table-view-cell mui-media'>"+
+								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"项目"+
+								"<p class='mui-ellipsis' id='symbol'>"+obj[i].itemName+"</p>"+
+								"</div>"+"</a>"+"</li>";
+					//结果
+					naiyo+="<li class='mui-table-view-cell mui-media'>"+
+								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"结果"+
+								"<p class='mui-ellipsis' id='symbol'>"+obj[i].value+"</p>"+
+								"</div>"+"</a>"+"</li>";
+					//参考值
+					naiyo+="<li class='mui-table-view-cell mui-media'>"+
+								"<a href='javascript:;'>"+"<div class='mui-media-body'>"+"参考值"+
+								"<p class='mui-ellipsis' id='symbol'>"+"大于:"+obj[i].min+"小于:"+obj[i].max+" "+obj[i].reference+"</p>"+
+								"</div>"+"</a>"+"</li>"+"</ul>";
+					}
+				content.innerHTML = naiyo; 
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">通知详情</h1>
+		</header>
+		<div class="mui-content" id="content">
+			<!--<div class="title">
+				缩略图居右
+			</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+
+						<div class="mui-media-body">
+							代号
+							<p class='mui-ellipsis' id="symbol">静静的看这个世界，最后终于疯了</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+
+						<div class="mui-media-body">
+							项目
+							<p class='mui-ellipsis' id="project">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+
+						<div class="mui-media-body">
+							结果
+							<p class='mui-ellipsis' id="result">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<div class="mui-media-body">
+							参考值
+							<p class='mui-ellipsis' id="reference">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+			</ul>-->
+		</div>
+
+	</body>
+
+</html>
