@@ -1,7 +1,7 @@
 ﻿{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H528E48D0",/*应用的标识，创建应用时自动生成，勿手动修改*/
-    "name": "医生",/*应用名称，程序桌面图标名称*/
+    "name": "医疗直通车",/*应用名称，程序桌面图标名称*/
     "version": {
         "name": "1.0",/*应用版本名称*/
         "code": ""
@@ -206,9 +206,78 @@
 		"pages": {
 			"index.html": {
 				"href": "index.html",
+				"priority": 0,
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"img/title.png",
+					"img/bg.png"
+				],
+				"refer": []
+			},
+			"home.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"img/shuijiao.jpg",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"img/muwu.jpg",
+					"css/mui.min.css",
+					"img/yuantiao.jpg",
+					"img/title.png",
+					"img/cbd.jpg",
+					"img/bg.png",
+					"reference.html",
+					"list.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"reference.html": {
+				"resources": [
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"img/title.png",
+					"js/mui.js",
+					"list.html",
+					"home.html",
+					"img/bg.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"list.html": {
+				"resources": [
+					"reference.html",
+					"js/app.js",
+					"js/mui.min.js",
+					"home.html",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"img/title.png"
+				],
+				"refer": [
+					"index.html"
+				],
 				"priority": 0
 			}
 		},
-		"idle": {}
+		"idle": {
+			"resources": [
+				"message.html",
+				"top.html",
+				"img/60x60.gif",
+				"img/logo.png",
+				"img/login-1.png",
+				"css/mui.css",
+				"img/iconfont-tianjia.png",
+				"README.md"
+			]
+		}
 	}
 }
