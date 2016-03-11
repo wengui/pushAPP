@@ -128,30 +128,24 @@
 			mui.init({
 				swipeBack: true //启用右滑关闭功能
 			});
-
 			mui.plusReady(function() {
-				
 				var options = {
 					cover: false
 				};
-				
-				console.log("if条件外"+localStorage.getItem("runFirst"));
-				if (plus.os.name == "iOS" && localStorage.getItem("runFirst")!="Yes" ){	
+				console.log("if条件外" + localStorage.getItem("runFirst"));
+				if (plus.os.name == "iOS" && localStorage.getItem("runFirst") != "Yes") {
 					console.log("112312312");
-					console.log("第一次启动"+localStorage.getItem("runFirst"));
+					console.log("第一次启动" + localStorage.getItem("runFirst"));
 					console.log(plus.push.getClientInfo().token);
 					tokenUpload(plus.push.getClientInfo().token);
-					
 				}
 				// 监听点击消息事件 
 				plus.push.addEventListener("click", function(msg) {
-
 					var obj = msg.payload;
 					info(obj.name, obj.time);
 				}, false);
 				// 监听在线消息事件
 				plus.push.addEventListener("receive", function(msg) {
-
 					//ios时弹出对话框，切到通知详情页面
 					if (plus.os.name == "iOS") {
 						var obj = msg.payload;
@@ -172,6 +166,21 @@
 						info(xinxi[0], xinxi[1]);
 					}
 				}, false);
+				var backButtonPress = 0;
+				console.log(backButtonPress);
+				mui.back = function(event) {
+					console.log(backButtonPress);
+					backButtonPress++;
+					if (backButtonPress > 1) {
+						plus.runtime.quit();
+					} else {
+						plus.nativeUI.toast('再按一次退出应用');
+					}
+					setTimeout(function() {
+						backButtonPress = 0;
+					}, 1000);
+					return false;
+				};
 			});
 		</script>
 	</body>
