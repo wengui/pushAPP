@@ -218,7 +218,7 @@
 			});
 			
 			mui.plusReady(function() {
-				alert("ajax启动");
+
 				//console.log("item:"+item); 
 				//数据取得
 				getRefValue();
@@ -228,7 +228,7 @@
 		//取得参考数据
 		function getRefValue(){
 			
-			mui.ajax('http://192.168.1.155:8080/pushApi/checkerRefAction/checkerRef.do', {
+			mui.ajax('http://202.120.117.54:8080/pushApi/checkerRefAction/checkerRef.do', {
 				dataType: 'json', //服务器返回json格式数据
 				type: 'post', //HTTP请求类型
 				timeout: 100000, //超时时间设置为10秒；

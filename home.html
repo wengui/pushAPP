@@ -130,10 +130,19 @@
 			});
 
 			mui.plusReady(function() {
-
+				
 				var options = {
 					cover: false
 				};
+				
+				console.log("if条件外"+localStorage.getItem("runFirst"));
+				if (plus.os.name == "iOS" && localStorage.getItem("runFirst")!="Yes" ){	
+					console.log("112312312");
+					console.log("第一次启动"+localStorage.getItem("runFirst"));
+					console.log(plus.push.getClientInfo().token);
+					tokenUpload(plus.push.getClientInfo().token);
+					
+				}
 				// 监听点击消息事件 
 				plus.push.addEventListener("click", function(msg) {
 
