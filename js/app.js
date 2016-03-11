@@ -77,3 +77,16 @@ function tokenUpload(token) {
 		}
 	});
 }
+
+
+//ios用户启动将token上传服务器
+function pageJump(page) {
+	mui.openWindow({
+				url: page,
+				id: page,
+				extras: {
+
+				}
+			});
+}
+
