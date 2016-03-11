@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">首页</h1>
+		</header>
+		<div id="slider" class="mui-slider" >
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="img/yuantiao.jpg">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="img/shuijiao.jpg">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="img/muwu.jpg">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="img/cbd.jpg">
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href="#">http://127.0.0.1:8020/example/slider-default.html#
+						<img src="img/yuantiao.jpg">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="img/shuijiao.jpg">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+		
+
+		        <ul class="mui-table-view mui-grid-view mui-grid-9">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-home"></span>
+		                    <div class="mui-media-body">主页</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-contact"></span>
+		                    <div class="mui-media-body">个人信息</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-person"></span>
+		                    <div class="mui-media-body">患者信息</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="list.html">
+		                    <span class="mui-icon mui-icon-chatbubble"><span class="mui-badge">5</span></span>
+		                    <div class="mui-media-body">历史通知</div></a></li>		        
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-search"></span>
+		                    <div class="mui-media-body">查询</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-phone"></span>
+		                    <div class="mui-media-body">电话</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="reference.html">
+		                    <span class="mui-icon mui-icon-gear"></span>
+		                    <div class="mui-media-body">参数设置</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-info"></span>
+		                    <div class="mui-media-body">关于</div></a></li>
+		           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-more"></span>
+		                    <div class="mui-media-body">更多</div></a></li>
+		        </ul> 
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			var slider = mui("#slider");
+			document.getElementById("switch").addEventListener('toggle', function(e) {
+				if (e.detail.isActive) {
+					slider.slider({
+						interval: 5000
+					});
+				} else {
+					slider.slider({
+						interval: 0
+					});
+				}
+			});
+
+			// 监听点击消息事件 
+			plus.push.addEventListener("click", function(msg) {
+
+				var obj = msg.payload;
+
+				info(obj.name,obj.time);
+
+			}, false);
+			// 监听在线消息事件
+			plus.push.addEventListener("receive", function(msg) {
+				
+				//ios时弹出对话框，切到通知详情页面
+				if (plus.os.name == "iOS") {
+					var obj = msg.payload;
+
+					var btnArray = ['否', '是'];
+					mui.confirm('是否立即查看？', '你有一条最新的检查结果的通知！', btnArray, function(e) {
+						if (e.index == 1) {
+							//执行info函数跳转通知详情页面
+							info(obj.name,obj.time);
+						} else {
+							//保持当前页面
+						}
+					})					
+				}
+				
+				else{
+					//安卓机器解析payload信息进入通知详情页面
+					//alert("receive " + msg.payload.toString());
+					var xinxi=msg.payload.toString().split(",");
+					//名字+逗号+时间
+					info(xinxi[0],xinxi[1]);
+				}
+
+			}, false);
+	
+		</script>
+	</body>
+</html>

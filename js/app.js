@@ -26,7 +26,7 @@ Date.prototype.Format = function(fmt)
 function info(name, time) {
 			console.log(name);
 			console.log(time);
-			mui.ajax('http://192.168.1.157:8080/pushApi/report/reportResult.do', {
+			mui.ajax('http://192.168.1.161:8080/pushApi/report/reportResult.do', {
 				data: {
 					//						pname: "张三",
 					//						ptime: "2016-03-08 13:49:25"
@@ -50,7 +50,9 @@ function info(name, time) {
 					});
 				},
 				error: function(xhr, type, errorThrown) { //异常处理；
-					console.log(type);
+					mui.alert('数据服务器链接失败', '错误', function() {
+					
+					});
 				}
 			});
 		}

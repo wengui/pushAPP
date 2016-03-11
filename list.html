@@ -50,7 +50,7 @@
 			};
 			//显示历史一览用
 			var naiyo = '';
-			mui.ajax('http://192.168.1.157:8080/pushApi/report/reportResultHistory.do', {
+			mui.ajax('http://192.168.1.161:8080/pushApi/report/reportResultHistory.do', {
 				data: {},
 				dataType: 'json', //服务器返回json格式数据
 				type: 'post', //HTTP请求类型
@@ -75,45 +75,13 @@
 					content.innerHTML = naiyo;
 				},
 				error: function(xhr, type, errorThrown) { //异常处理；
-					console.log(type);
+					mui.alert('数据服务器链接失败', '错误', function() {
+					
+					});
+
 				}
 			});
 
-			// 监听点击消息事件 
-			plus.push.addEventListener("click", function(msg) {
-
-				var obj = msg.payload;
-
-				info(obj.name,obj.time);
-
-			}, false);
-			// 监听在线消息事件
-			plus.push.addEventListener("receive", function(msg) {
-				
-				//ios时弹出对话框，切到通知详情页面
-				if (plus.os.name == "iOS") {
-					var obj = msg.payload;
-
-					var btnArray = ['否', '是'];
-					mui.confirm('是否立即查看？', '你有一条最新的检查结果的通知！', btnArray, function(e) {
-						if (e.index == 1) {
-							//执行info函数跳转通知详情页面
-							info(obj.name,obj.time);
-						} else {
-							//保持当前页面
-						}
-					})					
-				}
-				
-				else{
-					//安卓机器解析payload信息进入通知详情页面
-					//alert("receive " + msg.payload.toString());
-					var xinxi=msg.payload.toString().split(",");
-					//名字+逗号+时间
-					info(xinxi[0],xinxi[1]);
-				}
-
-			}, false);
 		});
 	</script>
 
