@@ -324,7 +324,7 @@
 		
 		//更新参考值1
 		function UpdateRefValue1(item,ageValue,minValue,maxValue){
-			mui.ajax('http://192.168.1.155:8080/pushApi/checkerRefAction/updateRefAll.do', {
+			mui.ajax('http://202.120.117.54:8080/pushApi/checkerRefAction/updateRefAll.do', {
 					data: {
 						itemName:item,
 						age:ageValue,
@@ -346,7 +346,7 @@
 		
 		//更新参考值2
 		function UpdateRefValue2(item,minValue){
-			mui.ajax('http://192.168.1.155:8080/pushApi/checkerRefAction/updateRef.do', {
+			mui.ajax('http://202.120.117.54:8080/pushApi/checkerRefAction/updateRef.do', {
 					data: {
 						itemName:item,
 						min:minValue
