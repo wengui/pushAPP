@@ -7,7 +7,7 @@
 
 
 //API地址常量
-var API_ADDRESS = 'http://192.168.1.162:8080/pushApi/'; //定义了常量
+var API_ADDRESS = 'http://202.120.117.54:8080/pushApi/'; //定义了常量
 
 
 Date.prototype.Format = function(fmt) { //author: meizz   

@@ -242,7 +242,7 @@
 				mui.ajax(API_ADDRESS + 'checkerRefAction/checkerRef.do', {
 					dataType: 'json', //服务器返回json格式数据
 					type: 'post', //HTTP请求类型
-					timeout: 100000, //超时时间设置为10秒；
+					timeout: 5000, //超时时间设置为10秒；
 					success: function(data) {
 						//服务器返回响应，根据响应结果，分析是否登录成功；
 						var obj = data.result;
@@ -335,7 +335,7 @@
 					},
 					dataType: 'json', //服务器返回json格式数据
 					type: 'post', //HTTP请求类型
-					timeout: 100000, //超时时间设置为10秒；
+					timeout: 5000, //超时时间设置为10秒；
 					success: function(data) {
 						plus.nativeUI.closeWaiting();
 						mui.alert("更新成功");
@@ -359,7 +359,7 @@
 					},
 					dataType: 'json', //服务器返回json格式数据
 					type: 'post', //HTTP请求类型
-					timeout: 100000, //超时时间设置为10秒；
+					timeout: 5000, //超时时间设置为10秒；
 					success: function(data) {
 						plus.nativeUI.closeWaiting();
 						mui.alert("更新成功");
