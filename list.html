@@ -50,12 +50,14 @@
 				cover: false
 			};
 			//显示历史一览用
+			plus.nativeUI.showWaiting("正在加载");
 			var naiyo = '';
-			mui.ajax('http://202.120.117.54:8080/pushApi/report/reportResultHistory.do', {
+			console.log(API_ADDRESS+'report/reportResultHistory.do');
+			mui.ajax(API_ADDRESS+'report/reportResultHistory.do', {
 				data: {},
 				dataType: 'json', //服务器返回json格式数据
 				type: 'post', //HTTP请求类型
-				timeout: 100000, //超时时间设置为10秒；
+				timeout: 5000, //超时时间设置为10秒；
 				success: function(data) {
 					//服务器返回响应，根据响应结果，分析是否登录成功；
 					console.log("success");
@@ -74,8 +76,10 @@
 					console.log(naiyo);
 					
 					content.innerHTML = naiyo;
+					plus.nativeUI.closeWaiting();
 				},
 				error: function(xhr, type, errorThrown) { //异常处理；
+					plus.nativeUI.closeWaiting();
 					mui.alert('数据服务器链接失败', '错误', function() {
 					
 					});
