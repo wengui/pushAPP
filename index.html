@@ -17,6 +17,14 @@
 				color: #6d6d72;
 				font-size: 15px;
 			}
+			span {
+				text-align: left;
+				display: block;
+				font-weight: bold;
+				font-size:18px;
+				
+			}
+
 		</style>
 
 		<script src="js/mui.min.js"></script>
@@ -34,10 +42,17 @@
 				}
 				else{
 					//标题					
-					naiyo+="<div class='title'><h4>"+"病人: "+obj[0].patientName+"</h4></div>"
-					naiyo+="<div class='title'><h4>"+"测试时间: "+self.ptime+"</h4></div>"
-					naiyo+="<div class='title'><h4>"+"年龄: "+obj[0].age+"</h4></div>"			
+					
+					naiyo+="<div class='title' ><span class='mui-pull-left' style='width:50%;'>"+"病人: "+obj[0].patientName+"</span>"+"<span class='mui-pull-left' style='width:50%;'>"+"样本号: "+obj[0].sampleId+"</span></div>"
+					naiyo+="</br>";
+					naiyo+="<div class='title' ><span class='mui-pull-left' style='width:50%;'>"+"年龄: "+obj[0].age+"</span>"+"<span class='mui-pull-right' style='width:50%;'>"+"科室: "+obj[0].department+"</span></div>"
+					naiyo+="</br>";
+					naiyo+="<div class='title' ><span class='mui-pull-left'>"+"测试时间: "+self.ptime+"</span></div>"
+					naiyo+="</br>";
+					naiyo+="</br>";
+							
 					naiyo+="<div  style='border-bottom:0.4px solid gray;'></div>"
+					
 					for (var i = 0; i < obj.length; i++) {
 						
 						
@@ -81,6 +96,7 @@
 						
 						}
 					}
+				
 					content.innerHTML = naiyo; 
 			});
 		</script>

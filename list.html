@@ -61,7 +61,7 @@
 				success: function(data) {
 					//服务器返回响应，根据响应结果，分析是否登录成功；
 					console.log("success");
-					console.log(data.result);
+					console.log( JSON.stringify(data.result));
 					var obj = data.result;
 					for (var i = 0; i < obj.length; i++) {
 						//标题
@@ -69,8 +69,10 @@
 						var date= new Date(obj[i].testtime.time).Format("yyyy-MM-dd hh:mm:ss");
 						naiyo += "<li class='mui-table-view-cell'>"+
 							"<a class='mui-navigate-right' onclick='info("+"\""+obj[i].patientname+"\""+","+"\""+date+"\""+");'>"+
-							"病人:"+obj[i].patientname + " 内容:" + obj[i].pushcontent +
-							"<p>"+"测试时间: " + date + "</p>"+
+							
+							"病人: " + obj[i].patientname +"&nbsp"+"&nbsp"+"&nbsp"+ "标本号: " + obj[i].sampleid +
+							"<h5>"+"内容: " + obj[i].pushcontent + "</h5>"+
+							"<h6>"+"测试时间: " + date + "</h6>"+
 						"</a>" + "</li>";
 					}
 					console.log(naiyo);
